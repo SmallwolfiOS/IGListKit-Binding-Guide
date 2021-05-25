@@ -17,6 +17,11 @@
 		295E9F0C1F472A7600483EF6 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E9F0B1F472A7600483EF6 /* ActionCell.swift */; };
 		295E9F0E1F472A7B00483EF6 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E9F0D1F472A7B00483EF6 /* CommentCell.swift */; };
 		3FDA58630A9BF93DD1102C31 /* Pods_ModelingAndBinding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB123E4D0D0C17DDF5BF53B3 /* Pods_ModelingAndBinding.framework */; };
+		E25C05FD265BFFBE008263E4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C05FC265BFFBE008263E4 /* Post.swift */; };
+		E25C05FF265C00B2008263E4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C05FE265C00B2008263E4 /* Comment.swift */; };
+		E25C0601265C673C008263E4 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C0600265C673C008263E4 /* UserViewModel.swift */; };
+		E25C0603265C6B2A008263E4 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C0602265C6B2A008263E4 /* ImageViewModel.swift */; };
+		E25C0605265C6C30008263E4 /* PostSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C0604265C6C30008263E4 /* PostSectionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		48035BB311269F14D70929DB /* Pods-ModelingAndBinding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelingAndBinding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ModelingAndBinding/Pods-ModelingAndBinding.debug.xcconfig"; sourceTree = "<group>"; };
 		BB123E4D0D0C17DDF5BF53B3 /* Pods_ModelingAndBinding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModelingAndBinding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE992874CA156426DAB496C9 /* Pods-ModelingAndBinding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelingAndBinding.release.xcconfig"; path = "Pods/Target Support Files/Pods-ModelingAndBinding/Pods-ModelingAndBinding.release.xcconfig"; sourceTree = "<group>"; };
+		E25C05FC265BFFBE008263E4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		E25C05FE265C00B2008263E4 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		E25C0600265C673C008263E4 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		E25C0602265C6B2A008263E4 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
+		E25C0604265C6C30008263E4 /* PostSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSectionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,11 @@
 				295E9EFC1F4720E700483EF6 /* Assets.xcassets */,
 				295E9EFE1F4720E700483EF6 /* LaunchScreen.storyboard */,
 				295E9F011F4720E700483EF6 /* Info.plist */,
+				E25C05FC265BFFBE008263E4 /* Post.swift */,
+				E25C05FE265C00B2008263E4 /* Comment.swift */,
+				E25C0600265C673C008263E4 /* UserViewModel.swift */,
+				E25C0602265C6B2A008263E4 /* ImageViewModel.swift */,
+				E25C0604265C6C30008263E4 /* PostSectionController.swift */,
 			);
 			path = ModelingAndBinding;
 			sourceTree = "<group>";
@@ -112,7 +127,6 @@
 				295E9EEF1F4720E700483EF6 /* Frameworks */,
 				295E9EF01F4720E700483EF6 /* Resources */,
 				3983458F33A6B6936EBEE8FB /* [CP] Embed Pods Frameworks */,
-				908A5659B65F677976A1CD44 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,6 +159,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -178,7 +193,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ModelingAndBinding/Pods-ModelingAndBinding-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ModelingAndBinding/Pods-ModelingAndBinding-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
@@ -189,22 +204,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ModelingAndBinding/Pods-ModelingAndBinding-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		908A5659B65F677976A1CD44 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ModelingAndBinding/Pods-ModelingAndBinding-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ModelingAndBinding/Pods-ModelingAndBinding-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		96AE0358437DB52C8D00D981 /* [CP] Check Pods Manifest.lock */ = {
@@ -235,9 +235,14 @@
 				295E9EF81F4720E700483EF6 /* ViewController.swift in Sources */,
 				295E9F0C1F472A7600483EF6 /* ActionCell.swift in Sources */,
 				295E9F0A1F472A6D00483EF6 /* ImageCell.swift in Sources */,
+				E25C05FF265C00B2008263E4 /* Comment.swift in Sources */,
 				295E9EF61F4720E700483EF6 /* AppDelegate.swift in Sources */,
 				295E9F081F472A6900483EF6 /* UserCell.swift in Sources */,
+				E25C0603265C6B2A008263E4 /* ImageViewModel.swift in Sources */,
+				E25C05FD265BFFBE008263E4 /* Post.swift in Sources */,
+				E25C0601265C673C008263E4 /* UserViewModel.swift in Sources */,
 				295E9F0E1F472A7B00483EF6 /* CommentCell.swift in Sources */,
+				E25C0605265C6C30008263E4 /* PostSectionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +371,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instagram.ModelingAndBinding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -380,7 +385,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instagram.ModelingAndBinding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

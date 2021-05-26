@@ -19,17 +19,52 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
     
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, viewModelsFor object: Any) -> [ListDiffable] {
         guard let object = object as? Post else{fatalError()}
+        let result : [ListDiffable] = [UserViewModel(username: object.userName, timestamp: object.timeStamp)
+                                       ImageViewModel(url: object.imageURL),
+                                       ActionViewModel(likes: object.likes)
+                                       
+        ]
+        return result + object.comments
     }
     
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, cellForViewModel viewModel: Any, at index: Int) -> UICollectionViewCell & ListBindable {
-        <#code#>
+        let identifier: String
+        switch viewModel {
+        case is ImageViewModel:
+            identifier = "image"
+        case is Comment:
+            identifier = "comment"
+        case is UserViewModel:
+            identifier = "user"
+        default:
+            identifier = "action"
+        }
+        guard let cell = collectionContext?.dequeueReusableCellFromStoryboard(withIdentifier: identifier, for: self, at: index) else {
+            fatalError()
+        }
+        if let cell = cell as? ActionCell {
+            cell.delegate = self
+        }
+        return cell as! ListBindable
     }
     
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, sizeForViewModel viewModel: Any, at index: Int) -> CGSize {
-        <#code#>
+        guard let width = collectionContext?.containerSize.width else {
+            fatalError()
+        }
+        let height : CGFloat
+        switch viewModel {
+        case is ImageViewModel: height = 250
+        case is Comment: height = 35
+        default:
+            height = 35
+        }
+        return CGSize(width: width, height: height)
     }
     
     
     
     
 }
+
+

@@ -7,10 +7,18 @@
 //
 
 import UIKit
+import IGListKit
 
-final class UserCell: UICollectionViewCell {
+final class UserCell: UICollectionViewCell, ListBindable {
 
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-
+    
+    func bindViewModel(_ viewModel: Any) {
+        guard let model = viewModel as? UserViewModel else {
+            return
+        }
+        usernameLabel.text = model.username
+        dateLabel.text = model.timestamp
+    }
 }

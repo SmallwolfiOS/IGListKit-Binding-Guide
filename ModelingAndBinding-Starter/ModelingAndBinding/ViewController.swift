@@ -19,6 +19,17 @@ class ViewController: UIViewController, ListAdapterDataSource {
         super.viewDidLoad()
         adapter.dataSource = self
         adapter.collectionView = self.collectionView
+        data.append(Post(
+          username: "@janedoe",
+          timestamp: "15min",
+          imageURL: URL(string: "https://placekitten.com/g/375/250")!,
+          likes: 384,
+          comments: [
+            Comment(username: "@ryan", text: "this is beautiful!"),
+            Comment(username: "@jsq", text: "?"),
+            Comment(username: "@caitlin", text: "#blessed"),
+          ]
+        ))
     }
 
     // MARK: ListAdapterDataSource

@@ -9,8 +9,8 @@
 import Foundation
 import IGListKit
 
-final class PostSectionController : ListBindingSectionController<Post>,ListBindingSectionControllerDataSource{
-    
+final class PostSectionController : ListBindingSectionController<Post>,ListBindingSectionControllerDataSource,ActionCellDelegate{
+    var localLikes: Int? = nil
     override init() {
         super.init()
         dataSource = self
@@ -19,7 +19,7 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
     
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, viewModelsFor object: Any) -> [ListDiffable] {
         guard let object = object as? Post else{fatalError()}
-        let result : [ListDiffable] = [UserViewModel(username: object.userName, timestamp: object.timeStamp)
+        let result : [ListDiffable] = [UserViewModel(username: object.username, timestamp: object.timestamp),
                                        ImageViewModel(url: object.imageURL),
                                        ActionViewModel(likes: object.likes)
                                        
@@ -45,7 +45,7 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
         if let cell = cell as? ActionCell {
             cell.delegate = self
         }
-        return cell as! ListBindable
+        return cell as! ListBindable & UICollectionViewCell 
     }
     
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, sizeForViewModel viewModel: Any, at index: Int) -> CGSize {
@@ -61,7 +61,13 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
         }
         return CGSize(width: width, height: height)
     }
-    
+    func didTapHeart(cell: ActionCell) {
+      print("like")
+        // 1
+          localLikes = (localLikes ?? object?.likes ?? 0) + 1
+          // 2
+          update(animated: true)
+    }
     
     
     

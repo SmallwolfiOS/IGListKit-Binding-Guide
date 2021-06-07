@@ -20,7 +20,7 @@ class ViewController: UIViewController, ListAdapterDataSource {
         data.append(Post(
           username: "@janedoe",
           timestamp: "15min",
-          imageURL: URL(string: "https://placekitten.com/g/375/250")!,
+          imageURL: URL(string: "https://placekitten.com/g/398/250")!,
           likes: 384,
           comments: [
             Comment(username: "@ryan", text: "this is beautiful!"),

@@ -59,6 +59,8 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
         default:
             height = 35
         }
+        
+        print("width:\(width)  height:\(height)  cellClass: \(viewModel.self)" )
         return CGSize(width: width, height: height)
     }
     func didTapHeart(cell: ActionCell) {

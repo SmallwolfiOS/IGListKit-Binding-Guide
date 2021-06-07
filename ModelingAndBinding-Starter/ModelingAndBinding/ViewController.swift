@@ -17,8 +17,6 @@ class ViewController: UIViewController, ListAdapterDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        adapter.dataSource = self
-        adapter.collectionView = self.collectionView
         data.append(Post(
           username: "@janedoe",
           timestamp: "15min",
@@ -30,6 +28,10 @@ class ViewController: UIViewController, ListAdapterDataSource {
             Comment(username: "@caitlin", text: "#blessed"),
           ]
         ))
+        adapter.dataSource = self
+        adapter.collectionView = self.collectionView
+        
+        
     }
 
     // MARK: ListAdapterDataSource
@@ -39,7 +41,7 @@ class ViewController: UIViewController, ListAdapterDataSource {
     }
 
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return ListSectionController()
+        return PostSectionController()
     }
 
     func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }

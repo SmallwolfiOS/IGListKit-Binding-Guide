@@ -21,7 +21,7 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
         guard let object = object as? Post else{fatalError()}
         let result : [ListDiffable] = [UserViewModel(username: object.username, timestamp: object.timestamp),
                                        ImageViewModel(url: object.imageURL),
-                                       ActionViewModel(likes: object.likes)
+                                       ActionViewModel(likes: localLikes ?? object.likes)
                                        
         ]
         return result + object.comments
@@ -45,7 +45,7 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
         if let cell = cell as? ActionCell {
             cell.delegate = self
         }
-        return cell as! ListBindable & UICollectionViewCell 
+        return cell as! (UICollectionViewCell & ListBindable)
     }
     
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, sizeForViewModel viewModel: Any, at index: Int) -> CGSize {

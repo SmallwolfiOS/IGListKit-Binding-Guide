@@ -9,7 +9,7 @@
 import Foundation
 import IGListKit
 
-final class ImageViewModel : ListDiffable{
+final class ImageViewModel : ListDiffable   {
     let url : URL
     init(url:URL) {
         self.url = url

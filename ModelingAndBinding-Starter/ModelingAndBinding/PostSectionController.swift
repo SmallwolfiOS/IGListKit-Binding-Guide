@@ -11,9 +11,11 @@ import IGListKit
 
 final class PostSectionController : ListBindingSectionController<Post>,ListBindingSectionControllerDataSource,ActionCellDelegate{
     var localLikes: Int? = nil
+    var expen: Bool = true
     override init() {
         super.init()
         dataSource = self
+        expen = true
     }
     
     
@@ -24,7 +26,14 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
                                        ActionViewModel(likes: localLikes ?? object.likes)
                                        
         ]
-        return result + object.comments
+        var data = result + object.comments
+        if self.expen {
+            return data
+        }else {
+            data.removeLast()
+            return data
+        }
+        
     }
     
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, cellForViewModel viewModel: Any, at index: Int) -> UICollectionViewCell & ListBindable {
@@ -45,6 +54,11 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
         if let cell = cell as? ActionCell {
             cell.delegate = self
         }
+        
+        if let cell = cell as? CommentCell {
+            cell.delegate = self
+        }
+        
         return cell as! (UICollectionViewCell & ListBindable)
     }
     
@@ -74,5 +88,10 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
     
     
 }
-
+extension PostSectionController: TapActionProtocol{
+    func tap() {
+        self.expen = !self.expen
+        update(animated: true, completion: nil)
+    }
+}
 

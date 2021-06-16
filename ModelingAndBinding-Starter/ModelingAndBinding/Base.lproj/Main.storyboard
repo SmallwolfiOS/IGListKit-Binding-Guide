@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -133,35 +134,49 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="comment" id="kwF-Hh-taT" customClass="CommentCell" customModule="ModelingAndBinding" customModuleProvider="target">
-                                        <rect key="frame" x="7.666666666666667" y="390" width="375" height="35"/>
+                                        <rect key="frame" x="7.666666666666667" y="390" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDt-XJ-tKq">
-                                                    <rect key="frame" x="15" y="8.6666666666666643" width="87" height="18"/>
+                                                    <rect key="frame" x="15" y="23.666666666666671" width="87" height="18"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comment text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q78-MC-Rum">
-                                                    <rect key="frame" x="106" y="8.6666666666666643" width="94" height="18"/>
+                                                    <rect key="frame" x="106" y="23.666666666666671" width="94" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwd-1W-iHd">
+                                                    <rect key="frame" x="0.0" y="35" width="111" height="30"/>
+                                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="OcC-wU-fCe"/>
+                                                        <constraint firstAttribute="width" constant="111" id="pZx-ko-Evm"/>
+                                                    </constraints>
+                                                    <state key="normal" title="展开按钮">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="q78-MC-Rum" firstAttribute="leading" secondItem="cDt-XJ-tKq" secondAttribute="trailing" constant="4" id="KPo-ri-CCq"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bwd-1W-iHd" secondAttribute="bottom" id="SCP-cR-caj"/>
                                             <constraint firstItem="cDt-XJ-tKq" firstAttribute="centerY" secondItem="kwF-Hh-taT" secondAttribute="centerY" id="byb-BS-5bf"/>
                                             <constraint firstItem="cDt-XJ-tKq" firstAttribute="leading" secondItem="kwF-Hh-taT" secondAttribute="leading" constant="15" id="okz-Dx-yOD"/>
                                             <constraint firstItem="q78-MC-Rum" firstAttribute="centerY" secondItem="kwF-Hh-taT" secondAttribute="centerY" id="tS5-O8-WlK"/>
+                                            <constraint firstItem="Bwd-1W-iHd" firstAttribute="leading" secondItem="kwF-Hh-taT" secondAttribute="leading" id="wmz-VO-VpV"/>
                                         </constraints>
-                                        <size key="customSize" width="375" height="35"/>
+                                        <size key="customSize" width="375" height="65"/>
                                         <connections>
                                             <outlet property="commentLabel" destination="q78-MC-Rum" id="hYu-QF-fq7"/>
+                                            <outlet property="foldBtn" destination="Bwd-1W-iHd" id="eeQ-Ow-fZD"/>
                                             <outlet property="usernameLabel" destination="cDt-XJ-tKq" id="HFG-Y0-ggZ"/>
                                         </connections>
                                     </collectionViewCell>
@@ -183,7 +198,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="138.98050974512745"/>
+            <point key="canvasLocation" x="140" y="138.6255924170616"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

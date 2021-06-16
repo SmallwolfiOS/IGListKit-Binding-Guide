@@ -30,7 +30,7 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
         if self.expen {
             return data
         }else {
-            data.removeLast()
+            data.remove(at: data.count - 2)
             return data
         }
         
@@ -69,7 +69,7 @@ final class PostSectionController : ListBindingSectionController<Post>,ListBindi
         let height : CGFloat
         switch viewModel {
         case is ImageViewModel: height = 250
-        case is Comment: height = 35
+        case is Comment: height = 100
         default:
             height = 35
         }

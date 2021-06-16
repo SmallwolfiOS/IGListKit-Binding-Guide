@@ -20,6 +20,7 @@ final class CommentCell: UICollectionViewCell, ListBindable {
     public var delegate: TapActionProtocol?
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var foldBtn: UIButton!
     
     func bindViewModel(_ viewModel: Any) {
         guard let model = viewModel as? Comment else {
@@ -29,7 +30,19 @@ final class CommentCell: UICollectionViewCell, ListBindable {
         self.commentLabel.text = model.text
         self.commentLabel.backgroundColor = UIColor.yellow
         self.commentLabel.isUserInteractionEnabled = true
-        self.commentLabel.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapActionForComment)))
+        
+        if model.username == "@caitlin" {
+            foldBtn.isHidden = false
+        }else{
+            foldBtn.isHidden = true
+        }
+        
+        
+        foldBtn .addTarget(self, action: #selector(tapActionForComment), for: .touchUpInside)
+        
+        
+        
+        
     }
     @objc func tapActionForComment() {
         guard let delegate = self.delegate else {
